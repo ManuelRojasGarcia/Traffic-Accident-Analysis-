@@ -1,0 +1,868 @@
+---
+title: 'Traffic Accident Analysis: Emergency Response, Weather Conditions, and Risk Factors'
+author: "Autor: DataManz"
+date: "Octubre 2024"
+---
+
+****
+# Section 1
+****
+
+Based on a dataset that you find interesting, propose a complete data mining project. The structure of the response must align with the typical phases of the data mining project lifecycle. **There is no need to carry out the tasks of each phase**.
+
+It is expected that the response will address the following questions in a structured manner (using the *CRISP-DM* methodology):
+
+1. **Business Understanding** - What does the business need?
+2. **Data Understanding** - What data do we have/need? Are they clean?
+3. **Data Preparation** - How do we organize the data for modeling?
+4. **Modeling** - What modeling techniques should we apply?
+5. **Evaluation** - Which model best meets the business objectives?
+6. **Deployment** - How will stakeholders access the results?
+
+For each phase, indicate the phase’s objective and the expected outcome. Use examples to illustrate what and how the tasks could be performed. If there are any unique characteristics that differentiate the lifecycle of a data mining project from other types of projects, highlight them.
+
+****
+## Proposed Project - Fire and Smoke Detection
+****
+
+This project focuses on developing an effective system to enhance safety in industrial and urban environments, where fires can occur at any time. Early detection of fire and smoke is crucial for protecting lives and property.
+
++ **Selected Dataset**: https://www.kaggle.com/datasets/roscoekerby/firesmoke-detection-yolo-v9
+
+****
+## Business Understanding
+****
+
+In this phase, the goal is to identify the business needs and expectations regarding the fire and smoke detection system. It is essential to understand current risks, the areas most prone to fires, and how this system can enhance safety and emergency response. By the end of this stage, we should be able to answer key questions and determine whether the metrics used can define success or failure.
+
+We will conduct interviews with key stakeholders, such as corporate safety officers and firefighters, analyze statistics on fire and smoke incidents in different environments (industrial and urban), and establish success criteria, such as a target percentage of correct detections and response time.
+
+This system can benefit various industries seeking to protect customers, employees, or civilians, such as occupational safety companies, chemical industries handling flammable materials, and emergency response services for firefighters, among others.
+
++ **Question:** What does the business need?
+
++ **Answer:** The business needs an efficient fire and smoke detection system that enhances safety and emergency response across various industries.
+
+****
+## Data Understanding
+****
+
+In this phase, the objective is to explore the available dataset to understand its quality, structure, and relevance to the project. The goal is to answer questions such as: What data do we have? Are they sufficient and representative? Are there quality issues? The expected outcome is a descriptive report on the dataset, including statistical summaries and quality analysis.
+
+This phase also involves examining the number of images per class (fire and smoke) to ensure a balanced dataset, verifying annotation quality through sampling to ensure bounding boxes are correctly defined, and identifying and documenting issues such as low-quality, blurry, misclassified, or duplicate images.
+
+According to the dataset, we have two classes (*translated literally*):
+
++ **0: Fire** – Images containing visible flames or areas where a fire is clearly present.
+
++ **1: Smoke** – Images with visible smoke, either in the early stages of fire development or due to environmental factors.
+
+Dataset Composition:
+
++ The dataset includes over 35,000 labeled images for fire and smoke detection.
+
++ The images vary in lighting conditions, resolutions, and environmental contexts to ensure the model generalizes well across different real-world scenarios.
+
++ **Training Data:** Images used for model training, with balanced examples of fire and smoke.
+
++ **Validation Data:** Used to fine-tune model hyperparameters and validate performance.
+
++ **Test Data:** Held-out data for final model evaluation, containing unseen images of fire and smoke.
+
+**Questions:**
+
++ **Question:** What data do we have/need? Are they clean?
+
++ **Answer:** We have over 35,000 labeled images of fire and smoke, but we need to verify annotation quality and ensure proper class balance.
+
+****
+## Data Preparation
+****
+
+Data preparation involves cleaning, transforming, and organizing the dataset to ensure it is ready for modeling. This phase is crucial to minimizing errors in modeling and maximizing the quality of the results. The goal is a structured and clean dataset that can be used to train detection models.
+
+During this phase, key tasks include normalizing images to a standard size and format (JPEG), correcting annotation errors such as incorrect bounding box coordinates or misassigned labels, and splitting the dataset into training, validation, and test sets while maintaining class distribution.
+
+*"Once data sources are identified, we must proceed with preparing them so that they can be used with the methods or tools that will build the desired model. This phase, although seemingly simple, along with data selection, consumes 70% (or more!) of the effort in newly implemented data mining projects." Page 20 - PID_00284574*
+
++ **Question:** How do we organize the data for modeling?
+
++ **Answer:** We organize the data by normalizing images, correcting annotations, and splitting the dataset into training, validation, and test sets.
+
+****
+## Modeling
+****
+
+In this phase, the goal is to select and apply the best techniques to solve the problem of detecting fire and smoke. The objective is to create a model that generalizes well to new data and meets the defined success criteria. By the end of this phase, we will have trained and validated object detection models ready for evaluation.
+
+*...include implementing various object detection algorithms, such as YOLO and Faster R-CNN, while tuning their hyperparameters to optimize performance, performing cross-validation to assess the model's robustness across different data subsets, and analyzing performance metrics like precision and recall to identify which models perform best for each class...*
+
++ *https://kili-technology.com/data-labeling/machine-learning/yolo-algorithm-real-time-object-detection-from-a-to-z*
+
+*"The task of these data mining projects is not exactly the same as in the previous point. Here, it is more common to start from a more informed situation, knowing that pre-defined groups already exist." Page 13 - PID_00284574*
+
++ **Question:** What modeling techniques should we apply?
+
++ **Answer:** We will apply object detection algorithms such as YOLO and Faster R-CNN, fine-tuning their hyperparameters to optimize performance.
+
+****
+## Evaluation
+****
+
+The goal is to determine whether the model meets business requirements and expectations. An evaluation report will be generated, including a performance analysis and recommendations.
+
+At this stage, we seek to assess whether the model fulfills the pre-established requirements and expectations, evaluating its usefulness both from a technical and business perspective. Validation techniques will be employed to measure model performance across different datasets, providing a solid evaluation. Additionally, evaluation metrics such as precision, recall, and F1-score will be analyzed to gain deeper insight into model behavior.
+
++ *(https://www.themachinelearners.com/metricas-de-clasificacion/)*
+
+It is also essential to compare the model’s results with other available alternatives. This comparison is crucial to determine the model’s effectiveness and whether other approaches should be explored. This process is not linear; instead, it involves continuous review and refinement to ensure that the model remains relevant and effective as conditions change and new challenges arise.
+
+*"This process is not linear; rather, it is iterative and continuous: new changes in the situation may render our knowledge outdated, requiring us to extract new insights." Page 12 - PID_00284574*
+
++ **Question:** Which model best meets the business objectives?
+
++ **Answer:** We will evaluate trained models using cross-validation and performance metrics to determine which best meets business objectives.
+
+****
+## Deployment
+****
+
+The final phase of the project lifecycle aims to integrate the model into an operational system, allowing end users to access its results effectively. The fire and smoke detection system is deployed, ensuring that it functions properly in a real-world environment and meets the established requirements.
+
+Additionally, continuous monitoring of the model is essential to ensure it continues to operate optimally. This includes making periodic adjustments based on results and changing conditions, guaranteeing that the system maintains its effectiveness and continues to achieve the project objectives. (This involves continuously reapplying Phase 5: Evaluation.)
+
+*"Once the objective is defined, and when we have linked it to the project's main task, identifying which models are most relevant and what methods and tools are needed, we must proceed to find the raw material: the data." Page 19 - PID_00284574*
+
++ **Question:** How do stakeholders access the results?
+
++ **Answer:** Stakeholders will access the results through an integrated system that enables real-time visualization and analysis of detections.
+
+****
+## Key Differentiating Characteristics
+****
+
+**If there is any characteristic that differentiates the lifecycle of a data mining project from other projects, indicate it.**
+
+The lifecycle of a data mining project is iterative and adaptable. Unlike other data analysis projects that may follow a more linear approach, data mining requires continuous revisions and the incorporation of new data. 
+
+This ensures that models remain relevant and effective in real-world situations, which is critical for safety applications such as fire and smoke detection.
+
+This approach reflects the need to "define the data mining task" and understand that achieving objectives may require a combined effort, where data is first grouped, then classified, and finally, a predictive model is extracted.
+
+This iterative process is also closely linked to "model evaluation and interpretation," where continuous validation and model adaptation to new circumstances are essential for project success. Additionally, ensuring that the extracted knowledge is valid and applicable in practice is a key principle in data mining, reinforcing the need for effective integration into the organization's information system.
+
+This iterative cycle not only enables continuous model improvement but also aligns with the goal of "explaining" behaviors, allowing analysts to understand and adjust the reasoning behind the results. This is particularly crucial in critical environments like fire and smoke detection.
+
+## Bibliography
+
++ https://openaccess.uoc.edu/bitstream/10609/71345/4/Business%20analytics_M%C3%B3dulo%203_Metodolog%C3%ADas%20y%20est%C3%A1ndares.pdf
++ https://www.iic.uam.es/innovacion/metodologia-crisp-dm-ciencia-de-datos/
++ https://es.wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining
++ https://www.datascience-pm.com/crisp-dm-2/
++ https://www.youtube.com/watch?v=UyKkSsEbXkw
++ https://kili-technology.com/data-labeling/machine-learning/yolo-algorithm-real-time-object-detection-from-a-to-z
++ Data Mining Process PID_00284574 Julià Minguillón Alfonso and Ramon Caihuelas Quiles
++ https://www.themachinelearners.com/metricas-de-clasificacion/
+
+****
+# Section 2
+****
+
+Using the dataset from the PEC example, perform the preliminary tasks for generating a data mining model, as explained in the modules *"The Data Mining Process"* and *"Data Preprocessing and Feature Management"*. 
+
+You may use the PEC example as a reference, but you should change the approach and analyze the data based on different dimensions. Thus, you cannot use the same combination of variables as in the example: `"FATALS", "DRUNK_DR", "VE_TOTAL", "VE_FORMS", "PVH_INVL", "PEDS", "PERSONS", "PERMVIT", "PERNOTMVIT"`. You must analyze any other combination, which may include some of these variables along with new ones.
+
+Optionally, and as an added value, you may incorporate data from other years for temporal comparisons (https://www.nhtsa.gov/file-downloads?p=nhtsa/downloads/FARS/) or include additional factors for analysis, such as drug use in accidents (https://static.nhtsa.gov/nhtsa/downloads/FARS/2020/National/FARS2020NationalCSV.zip).
+
+****
+## Dataset Source Description
+****
+
+A dataset from the **National Highway Traffic Safety Administration (NHTSA)** for the year **2020** has been selected. This dataset records accidents with at least one fatality. The objective is to understand what factors contribute to an accident being classified as severe and what defines this severity.
+
++ https://www.nhtsa.gov/crash-data-systems/fatality-analysis-reporting-system
++ [National Highway Traffic Safety Administration] (https://www.nhtsa.gov/)
+
+****
+## Initial Preparation and Exploratory Analysis
+****
+
+Before starting the analysis, we install the necessary libraries using an `if` statement to check if they are already installed, preventing conflicts in our code.
+
+```{r}
+if (!require('ggplot2')) install.packages('ggplot2'); library('ggplot2')
+if(!require('Rmisc')) install.packages('Rmisc'); library('Rmisc')
+if(!require('dplyr')) install.packages('dplyr'); library('dplyr')
+if(!require('xfun')) install.packages('xfun'); library('xfun')
+if(!require('factoextra')) install.packages('factoextra', dependencies = TRUE)
+if(!require('mice')) install.packages('mice', dependencies = TRUE)
+```
+
+Load the dataset and use the same naming conventions as in the guided example.
+Finally, we examine the structure of the dataset.
+
+```{r}
+path = 'accident.CSV'
+accidentData <- read.csv(path, row.names=NULL)
+structure = str(accidentData)
+```
+
+Although we already knew this from the guided example, we obtain the number of observations and variables.
+
+```{r}
+num_observaciones <- nrow(accidentData)
+num_variables <- ncol(accidentData)
+
+cat("Número de observaciones:", num_observaciones, "\n")
+cat("Número de variables:", num_variables, "\n")
+```
+We continue following the initial guidelines from the guided example, as the steps remain the same. Now, we must review the variables and validate them with the documentation to prevent errors before starting our analysis. The variables are logically arranged to provide meaning, and we complete them with information in Spanish.
+
++ **ST_CASE** Accident identifier
+
+**FACTS TO STUDY**
+
++ **FATAL** Fatalities
++ **DRUNK_DR** Drunk drivers
++ **VE_TOTAL** Total number of vehicles involved
++ **VE_FORMS** Number of moving vehicles involved
++ **PVH_INVL** Number of parked vehicles involved
++ **PEDS** Number of pedestrians involved
++ **PERSONS** Number of vehicle occupants involved
++ **PERMVIT** Number of drivers and occupants involved
++ **PERNOTMVIT** Number of pedestrians, cyclists, horse riders... Anything other than a motor vehicle
+
+**GEOGRAPHIC DIMENSION**
+
++ **STATE** State code
++ **STATENAME** State name
++ **COUNTY** County identifier
++ **COUNTYNAME** County
++ **CITY** City identifier
++ **CITYNAME** City
++ **NHS** 1 if it is on an NHS highway, 0 if not
++ **NHSNAME** TBD
++ **ROUTE** Route identifier
++ **ROUTENAME** Route
++ **TWAY_ID** Transit way (1982)
++ **TWAY_ID2** Transit way (2004)
++ **RUR_URB** Rural or urban segment identifier
++ **RUR_URBNAME** Rural or urban segment
++ **FUNC_SYS** Functional classification of the segment
++ **FUNC_SYSNAME** TBD
++ **RD_OWNER** Segment owner identifier
++ **RD_OWNERNAME** Segment owner
++ **MILEPT** Mile (integer)
++ **MILEPTNAME** Mile (character)
++ **LATITUDE** Latitude (integer)
++ **LATITUDENAME** Latitude (character)
++ **LONGITUD** Longitude (integer)
++ **LONGITUDNAME** Longitude (character)
++ **SP_JUR** Jurisdiction code
++ **SP_JURNAME** Jurisdiction
+
+**TEMPORAL DIMENSION**
+
++ **DAY** Day
++ **DAYNAME** Repeated day
++ **MONTH** Month
++ **MONTHNAME** Month name
++ **YEAR** Year
++ **DAY_WEEK** Day of the week
++ **DAY_WEEKNAME** Day of the week name
++ **HOUR** Hour
++ **HOURNAME** Time range
++ **MINUTE** Minute (integer)
++ **MINUTENAME** Minute (character)
+
+**ACCIDENT CONDITIONS DIMENSION**
+
++ **HARM_EV** Code for the first event of the accident causing damage or injury
++ **HARM_EVNAME** First event of the accident causing damage or injury
++ **MAN_COLL** Vehicle position code
++ **MAN_COLLNAME** Vehicle position
++ **RELJCT1** Code indicating if there is an interchange area
++ **RELJCT1NAME** If there is an interchange area
++ **RELJCT2** Proximity to intersection code
++ **RELJCT2NAME** Proximity to intersection
++ **TYP_INT** Intersection type code
++ **TYP_INTNAME** Intersection type
++ **WRK_ZONE** Work zone type code
++ **WRK_ZONENAME** Work zone type
++ **RAIL_ROAD** Vehicle location relative to railway code
++ **RAIL_ROADNAME** Vehicle location relative to railway
++ **LGT_COND** Lighting condition code
++ **LGT_CONDNAME** Lighting condition
+
+**METEOROLOGICAL DIMENSION**
+
++ **WEATHER** Weather code
++ **WEATHERNAME** Weather
+
+**OTHER FACTORS**
+
++ **SCH_BUSS** Code indicating if a school bus was involved
++ **SCH_BUSNAME** School bus involved
++ **RAIL** Code indicating if the accident occurred near or on a railway crossing
++ **RAILNAME** If near or on a railway crossing
+
+**EMERGENCY SERVICE DIMENSION**
+
++ **NOT_HOUR** Emergency notification hour (integer)
++ **NOT_HOURNAME** Emergency notification time range
++ **NOT_MIN** Emergency notification minute (integer)
++ **NOT_MINNAME** Emergency notification minute (character)
++ **ARR_HOUR** Emergency arrival hour (integer)
++ **ARR_HOURNAME** Emergency arrival time range
++ **ARR_MIN** Emergency arrival minute (integer)
++ **ARR_MINNAME** Emergency arrival minute (character)
++ **HOSP_HR** Hospital arrival hour (integer)
++ **HOSP_HRNAME** Hospital arrival time range
++ **HOSP_MN** Hospital arrival minute (integer)
++ **HOSP_MNNAME** Hospital arrival minute (character)
+
+**ACCIDENT-RELATED FACTORS DIMENSION**
+
++ **CF1** Code for accident-related factor 1
++ **CF1NAME** Accident-related factor 1
++ **CF2** Code for accident-related factor 2
++ **CF2NAME** Accident-related factor 2
++ **CF3** Code for accident-related factor 3
+
+Finally, before starting data preprocessing, we conduct an overview of the basic statistics of our dataset.
+
+
+```{r}
+summary(accidentData)
+```
+
+****
+## Preprocessing
+****
+
+In this phase, we will transform our dataset into a new one by removing all information that we consider erroneous or of little value, allowing us to begin our analysis.
+
+Logically, we will check for missing values in both forms.
+
+```{r}
+missing_values <- colSums(is.na(accidentData)) + colSums(accidentData == "")
+print(missing_values)
+```
+
+We observe that the variable **TWAY_ID** has **26,997** missing values, so we will analyze this variable.
+
+
+```{r}
+str(accidentData$TWAY_ID2)
+
+missing_tway_id2 <- sum(is.na(accidentData$TWAY_ID2))
+cat("Number of missing values in TWAY_ID2:", missing_tway_id2, "\n")
+
+```
+
+We understand that data for these roads is unavailable for some reason. However, in my emergency analysis, which will be presented later, it is essential to consider the road as an additional variable to interpret the results. 
+
+Therefore, we will account for the transformation of this variable. To address this issue, we will fill the missing values with `"notspecify"` and verify that this procedure is correctly applied.
+
+```{r}
+accidentData$TWAY_ID2 <- ifelse(accidentData$TWAY_ID2 == "", "notspecify", accidentData$TWAY_ID2)
+missing_values <- colSums(is.na(accidentData)) + colSums(accidentData == "")
+print(missing_values)
+```
+
+Before starting the analysis, we will focus on fatalities, set a global context, and humanize the topic we are addressing—fatalities and factors such as the most dangerous day of the week and the time of occurrence.
+
+```{r}
+total_fatalities <- sum(accidentData$FATALS, na.rm = TRUE)
+cat("Total number of fatalities:", total_fatalities, "\n")
+
+fatalities_by_day <- accidentData %>%
+  group_by(DAY_WEEKNAME) %>%
+  summarise(Total_Fatalities = sum(FATALS, na.rm = TRUE)) %>%
+  arrange(desc(Total_Fatalities))
+
+cat("\nFatalities by day of the week:\n")
+print(fatalities_by_day)
+
+fatalities_by_hour <- accidentData %>%
+  group_by(HOURNAME) %>%
+  summarise(Total_Fatalities = sum(FATALS, na.rm = TRUE)) %>%
+  arrange(desc(Total_Fatalities))
+
+cat("\nFatalities by hour of the day:\n")
+print(fatalities_by_hour)
+
+```
+
+It is always important to consider the margin of error, which in this case is **313** over the total.
+
+```{r}
+unknown_hours_count <- sum(accidentData$HOURNAME == "Unknown Hours", na.rm = TRUE)
+cat("Number of records with 'Unknown Hours':", unknown_hours_count, "\n")
+```
+
+In this accident analysis, we found a total of **38,824** fatalities, which highlights a serious issue with road safety. Looking at the days of the week, **Saturday** is the most dangerous with **6,712** fatalities, followed closely by **Sunday** with **6,114** and **Friday** with **6,026**. This suggests that weekends, when people tend to go out more, may be linked to a higher risk, possibly due to alcohol consumption.
+
+Regarding the hours of the day, the most critical times are at night, with **9:00 PM to 9:59 PM** recording the highest number of fatalities at **2,357**, followed by **6:00 PM to 6:59 PM** with **2,356** fatalities. This indicates that nighttime is particularly dangerous on the roads. 
+
+It is clear that action is needed to improve road safety, especially during weekends and these critical hours.
+
+
+## Emergency Analysis
+
+After analyzing and transforming the dataset, we will focus our analysis on the emergency-related variables.
+
+**EMERGENCY SERVICE DIMENSION**
+
++ **NOT_HOUR** Emergency notification hour (integer)
++ **NOT_HOURNAME** Emergency notification time range
++ **NOT_MIN** Emergency notification minute (integer)
++ **NOT_MINNAME** Emergency notification minute (character)
++ **ARR_HOUR** Emergency arrival hour (integer)
++ **ARR_HOURNAME** Emergency arrival time range
++ **ARR_MIN** Emergency arrival minute (integer)
++ **ARR_MINNAME** Emergency arrival minute (character)
++ **HOSP_HR** Hospital arrival hour (integer)
++ **HOSP_HRNAME** Hospital arrival time range
++ **HOSP_MN** Hospital arrival minute (integer)
++ **HOSP_MNNAME** Hospital arrival minute (character)
+
+**Bibliography**
+
++ *https://rsanchezs.gitbooks.io/rprogramming/content/chapter9/mutate.html* "Mutate: Calculation in Minutes"
+
+
+```{r}
+accidentData <- accidentData %>%
+  mutate(
+    Tiempo_Respuesta = (ARR_HOUR * 60 + ARR_MIN) - (NOT_HOUR * 60 + NOT_MIN),
+    Tiempo_Hasta_Hospital = (HOSP_HR * 60 + HOSP_MN) - (ARR_HOUR * 60 + ARR_MIN)
+  )
+head(accidentData %>% select(NOT_HOUR, NOT_MIN, ARR_HOUR, ARR_MIN, Tiempo_Respuesta))
+
+```
+We observe that these data contain null values identified as **99**, so we will replace them and include them as **NA**.
+
+```{r}
+accidentData <- accidentData %>%
+  mutate(
+    NOT_HOUR = ifelse(NOT_HOUR == 99, NA, NOT_HOUR),
+    NOT_MIN = ifelse(NOT_MIN == 99, NA, NOT_MIN),
+    
+    ARR_HOUR = ifelse(ARR_HOUR == 99, NA, ARR_HOUR),
+    ARR_MIN = ifelse(ARR_MIN == 99, NA, ARR_MIN),
+    
+    HOSP_HR = ifelse(HOSP_HR == 99, NA, HOSP_HR),
+    HOSP_MN = ifelse(HOSP_MN == 99, NA, HOSP_MN)
+  )
+
+hour_columns <- accidentData[, c("NOT_HOUR", "NOT_MIN", "ARR_HOUR", "ARR_MIN", "HOSP_HR", "HOSP_MN")]
+na_summary_hours <- colSums(is.na(hour_columns))
+na_summary_hours
+
+```
+
+```{r}
+na_percentage_hours <- (na_summary_hours / nrow(accidentData)) * 100
+na_percentage_hours
+
+```
+The percentages are so high that the analysis would be inaccurate. We need to take a different approach, such as analyzing time ranges. However, it is evident that even this cannot be used due to the presence of missing values.
+
+
+```{r}
+incident_counts <- accidentData %>%
+  group_by(NOT_HOURNAME) %>%
+  summarise(Incident_Count = n())
+
+ggplot(incident_counts, aes(x = NOT_HOURNAME, y = Incident_Count)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Number of Incidents by Notification Time Range",
+       x = "Notification Time Range",
+       y = "Number of Incidents") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+```{r}
+unknown_counts <- accidentData %>%
+  summarise(
+    NOT_HOURNAME_Unknown = sum(NOT_HOURNAME == "Unknown", na.rm = TRUE),
+    ARR_HOURNAME_Unknown = sum(ARR_HOURNAME == "Unknown", na.rm = TRUE),
+    ARR_MINNAME_Unknown = sum(ARR_MINNAME == "Unknown", na.rm = TRUE)
+  )
+
+print(unknown_counts)
+
+```
+
+
+```{r}
+accidentData <- accidentData %>%
+  select(-Tiempo_Respuesta, -Tiempo_Hasta_Hospital)
+
+emergency_variables <- accidentData %>%
+  select(NOT_HOUR, NOT_MIN, ARR_HOUR, ARR_MIN, HOSP_HR, HOSP_MN)
+
+summary_stats <- summary(emergency_variables)
+
+na_counts <- sapply(emergency_variables, function(x) sum(is.na(x)))
+
+summary_with_na <- list(
+  summary_stats = summary_stats,
+  na_counts = na_counts
+)
+
+print(summary_with_na)
+
+```
+
+Emergency Conclusion: There is a significant number of missing values across all variables, especially in **NOT_HOUR**, **ARR_HOUR**, and **ARR_MIN**, where more than **50%** of the data is missing. This indicates that alternative variables should be used or that we should check if these data have improved in the **2022 dataset**.
+
+```{r}
+path2 = 'accident2022.CSV'
+accidentData2022 <- read.csv(path2, row.names=NULL)
+structure = str(accidentData2022)
+```
+
+```{r}
+accidentData2022 <- accidentData2022 %>%
+  mutate(
+    NOT_HOUR = ifelse(NOT_HOUR == 99, NA, NOT_HOUR),
+    NOT_MIN = ifelse(NOT_MIN == 99, NA, NOT_MIN),
+    
+    ARR_HOUR = ifelse(ARR_HOUR == 99, NA, ARR_HOUR),
+    ARR_MIN = ifelse(ARR_MIN == 99, NA, ARR_MIN),
+    
+    HOSP_HR = ifelse(HOSP_HR == 99, NA, HOSP_HR),
+    HOSP_MN = ifelse(HOSP_MN == 99, NA, HOSP_MN)
+  )
+
+hour_columns <- accidentData2022[, c("NOT_HOUR", "NOT_MIN", "ARR_HOUR", "ARR_MIN", "HOSP_HR", "HOSP_MN")]
+na_summary_hours <- colSums(is.na(hour_columns))
+print(na_summary_hours)
+
+na_percentage_hours <- (na_summary_hours / nrow(accidentData2022)) * 100
+print(na_percentage_hours)
+
+```
+During our data exploration and upon revisiting the documentation, we found that **88** corresponds to *"Not Applicable or Not Notified"*. We will include this value in the percentage calculations.
+
+
+```{r}
+accidentData2022 <- accidentData2022 %>%
+  mutate(
+    NOT_HOUR = ifelse(NOT_HOUR %in% c(99, 88), NA, NOT_HOUR),
+    NOT_MIN = ifelse(NOT_MIN %in% c(99, 88), NA, NOT_MIN),
+    
+    ARR_HOUR = ifelse(ARR_HOUR %in% c(99, 88), NA, ARR_HOUR),
+    ARR_MIN = ifelse(ARR_MIN %in% c(99, 88), NA, ARR_MIN),
+    
+    HOSP_HR = ifelse(HOSP_HR %in% c(99, 88), NA, HOSP_HR),
+    HOSP_MN = ifelse(HOSP_MN %in% c(99, 88), NA, HOSP_MN)
+  )
+
+hour_columns <- accidentData2022[, c("NOT_HOUR", "NOT_MIN", "ARR_HOUR", "ARR_MIN", "HOSP_HR", "HOSP_MN")]
+
+na_summary_hours <- colSums(is.na(hour_columns))
+print(na_summary_hours)
+
+
+na_percentage_hours <- (na_summary_hours / nrow(accidentData2022)) * 100
+print(na_percentage_hours)
+```
+
+The percentage values remain very high, even when using a dataset from more recent years. This indicates that the focus should be on data retention, as there are many unknown values.
+
+## EXTRA - Multiple Imputation
+
+An attempt is made to perform multiple imputation based on the following reference:
+
++ https://rpubs.com/ydmarinb/429757
+
+We begin the multiple imputation process by applying the technique described in the reference, focusing on the relevant columns. First, we replace the values **99** and **88**, which are considered unknown data, with **NA** to facilitate imputation. 
+
+We use the **mice** function to perform the imputation, setting the number of imputations to **30**. This ensures that the missing data in the **notification** and **emergency arrival** columns are adequately addressed. 
+
+Finally, visualizations are generated to analyze the relationships between **notification and arrival times**, allowing for a deeper examination of the **efficiency of the emergency response system**.
+
+```{r}
+columns <- c("NOT_HOUR", "NOT_MIN", "ARR_HOUR", "ARR_MIN", "HOSP_HR", "HOSP_MN")
+accidentData <- accidentData %>%
+  mutate(across(all_of(columns), ~ replace(., . %in% c(99, 88), NA)))
+set.seed(2018)  
+imputed_data3 <- mice(accidentData[, names(accidentData) %in% columns], m = 30, print = FALSE)
+complete.data3 <- mice::complete(imputed_data3)
+xyplot(imputed_data3, ARR_HOUR ~ NOT_HOUR)
+
+```
+
+We will create a new dataset with the imputed values.
+
+```{r}
+complete.data3 <- mice::complete(imputed_data3)
+for (column in columns) {
+  accidentData[[column]] <- complete.data3[[column]]
+}
+accidentData_imputed <- accidentData
+
+head(accidentData_imputed)
+```
+
+The histogram graph shows the distribution of the **emergency notification hour (NOT_HOUR)**. 
+
+Next, we sum the frequencies to confirm (although it is clearly visible in the graph) that **8:00 PM** is the hour with the highest number of notifications.
+
+
+```{r}
+ggplot(accidentData_imputed, aes(x = NOT_HOUR)) + 
+  geom_histogram(binwidth = 1, fill = "blue", alpha = 0.7) + 
+  labs(title = "Distribution of Notification Hour", 
+       x = "Notification Hour", 
+       y = "Frequency")
+```
+
+
+```{r}
+frecuencia_not_hour <- table(accidentData_imputed$NOT_HOUR)
+frecuencia_not_hour_df <- as.data.frame(frecuencia_not_hour)
+names(frecuencia_not_hour_df) <- c("Hora", "Frecuencia")
+frecuencia_maxima <- frecuencia_not_hour_df[which.max(frecuencia_not_hour_df$Frecuencia), ]
+frecuencia_maxima
+```
+
+Now, we create another graph to visualize **fatalities by notification hour**. 
+
+At first glance, we can confirm that the hour with the most notifications (**8:00 PM**) is also the one with the highest number of fatalities.
+
+```{r}
+ggplot(accidentData_imputed %>%
+         group_by(NOT_HOUR) %>%
+         summarise(Total_Fatalities = sum(FATALS, na.rm = TRUE)), 
+       aes(x = NOT_HOUR, y = Total_Fatalities)) +
+  geom_bar(stat = "identity", fill = "red", alpha = 0.7) +
+  labs(title = "Total Fatalities by Notification Hour",
+       x = "Notification Hour",
+       y = "Total Fatalities") +
+  theme_minimal()
+```
+
+Now, we will create the same graph but based on **time ranges**. 
+
+Although we could anticipate that the number of fatalities is higher in the afternoon, this plot provides a more complete visualization, suggesting that **the later it gets, the higher the number of fatalities**.
+
+```{r}
+accidentData_imputed <- accidentData_imputed %>%
+  mutate(Time_Range = case_when(
+    NOT_HOUR >= 0 & NOT_HOUR < 6 ~ "00-06",
+    NOT_HOUR >= 6 & NOT_HOUR < 12 ~ "06-12",
+    NOT_HOUR >= 12 & NOT_HOUR < 18 ~ "12-18",
+    TRUE ~ "18-24"
+  ))
+
+fatalities_by_time_range <- accidentData_imputed %>%
+  group_by(Time_Range) %>%
+  summarise(Total_Fatalities = sum(FATALS, na.rm = TRUE))
+
+ggplot(fatalities_by_time_range, aes(x = Time_Range, y = Total_Fatalities)) +
+  geom_bar(stat = "identity", fill = "purple", alpha = 0.7) +
+  labs(title = "Total Fatalities by Time Range",
+       x = "Time Range",
+       y = "Total Fatalities") +
+  theme_minimal()
+
+```
+
+We perform a **correlation analysis** as a confirmation and determine that there is a relationship between the **notification hour** and the **number of fatalities**.
+
+```{r}
+muertes_por_hora <- accidentData_imputed %>%
+  group_by(NOT_HOUR) %>%
+  summarise(Total_Muertes = sum(FATALS, na.rm = TRUE))
+
+correlacion <- cor(muertes_por_hora$NOT_HOUR, muertes_por_hora$Total_Muertes, use = "complete.obs")
+print(correlacion)
+
+```
+
+We create a **regression model** to study how the **notification hour (NOT_HOUR)** is related to the **total number of fatalities (Total_Fatalities)**. 
+
+The results indicate that **fatalities tend to increase significantly as the day progresses**, with a **coefficient of 0.0347 per hour**.
+
+```{r}
+modelo <- glm(Total_Muertes ~ NOT_HOUR, data = muertes_por_hora, family = "poisson")
+summary(modelo)
+```
+
+```{r}
+ggplot(muertes_por_hora, aes(x = NOT_HOUR, y = Total_Muertes)) +
+  geom_point(color = "blue") +
+  geom_smooth(method = "glm", method.args = list(family = "poisson"), color = "red") +
+  labs(title = "Relationship Between Notification Hour and Total Fatalities",
+       x = "Time of Notificación",
+       y = "Total of deaths") +
+  theme_minimal()
+
+```
+
+The analysis of the relationship between **emergency notification hour (NOT_HOUR)** and the **number of fatalities (Total_Fatalities)** provides insights into how these situations unfold. Using a **regression model**, we found a significant connection: **for every hour that passes, the probability of fatalities increases by approximately 3.53%**. This result is strong (**p-value less than 2e-16**), indicating that it is not due to chance.
+
+Examining the data, we observe a **cyclical pattern** in the hours of the day. For example, the **number of fatalities at 11:00 PM and 12:00 AM is similar**, as both hours are part of the same daily transition. This finding highlights that, even as the day changes, **emergency activity continues**.
+
+The **majority of fatalities occur between 6:00 PM and 12:00 AM**, which may be related to increased **public and private activity** during those hours. This suggests that **emergency services should be prepared for a higher number of incidents during these critical periods**.
+
+To improve **emergency response**, it is essential to **adjust resources and staffing** based on these demand peaks. **Increasing the number of ambulances and medical personnel during these key hours** could make a significant difference in response times and potentially reduce the number of fatalities.
+
+## Analysis of Fatalities in Non-Motorized Vehicles Based on Weather Conditions
+
+In this analysis, we focus on examining **weather-related variables** to identify potential unregistered values in the accident data. It was observed that **only 0.72% of the records contain unrecognized values**, a percentage so low that it is considered **insignificant and will not affect the validity of our analysis**.
+
+
+```{r}
+total_registros <- nrow(accidentData)
+
+clima_frecuencia <- accidentData %>%
+  group_by(WEATHERNAME) %>%
+  summarise(Frecuencia = n()) %>%
+  mutate(Porcentaje = (Frecuencia / total_registros) * 100) %>%
+  arrange(desc(Frecuencia))
+print(clima_frecuencia)
+```
+
+```{r}
+ggplot(clima_frecuencia, aes(x = reorder(WEATHERNAME, -Frecuencia), y = Frecuencia)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(title = "Accident Frequency by Weather Conditions",
+       x = "Weather Conditions",
+       y = "Accident Frequency") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+ 
+```
+
+To evaluate the **frequency of different weather conditions**, we performed a count of observations in each category of the **WEATHERNAME** variable. The results revealed the following frequencies and associated percentages:
+
++ **Clear:** 24,963 records, representing **69.8%** of the total.
++ **Cloudy:** 4,622 records, corresponding to **12.9%**.
++ **Rain:** 2,634 records, equivalent to **7.36%**.
++ **Not Reported:** 2,461 records, or **6.88%**.
++ **Fog, Smog, Smoke:** 370 records, **1.03%**.
++ **Snow:** 283 records, representing **0.791%**.
++ **Reported as Unknown:** 261 records, or **0.730%**.
++ **Severe Crosswinds:** 56 records, **0.157%**.
++ **Freezing Rain or Drizzle:** 39 records, **0.109%**.
++ **Blowing Snow:** 26 records, representing **0.0727%**.
++ **Sleet or Hail:** 26 records, also **0.0727%**.
++ **Other:** 20 records, equivalent to **0.0559%**.
++ **Blowing Sand, Soil, Dirt:** 5 records, **0.0140%**.
+
+**Observations**
+
+The data show that the majority of accidents (**69.8%**) occurred under **clear conditions**, which suggests that **weather conditions are not always a determining factor** in accident severity. However, **rainy and cloudy conditions** also constitute a significant portion of the records, indicating the need for **further investigation into the relationship between these conditions and accident severity**.
+
+The presence of a **considerable percentage of records classified as "Not Reported" (6.88%)** also highlights the **importance of improving data collection regarding weather conditions** in accident reports.
+
+At this point, we proceed to **normalize the variables**. As demonstrated in the example exercise, we use the following code to **normalize the variables FATALS and PERNOTMVIT**, allowing us to scale all values to a **common range between 0 and 1**, facilitating comparison and further analysis.
+
+
+
+```{r}
+path = 'accident.CSV'
+accidentData <- read.csv(path, row.names=NULL)
+accidentData <- accidentData %>%
+  select(FATALS, PERNOTMVIT, WEATHERNAME)
+nor <- function(x) {(x - min(x)) / (max(x) - min(x))}
+
+accidentData_nor <- accidentData %>%
+  mutate(FATALS = nor(FATALS), PERNOTMVIT = nor(PERNOTMVIT))
+```
+
+
+```{r}
+accidentData_dummies <- accidentData_nor %>%
+  bind_cols(model.matrix(~WEATHERNAME - 1, data = .)) %>%
+  select(-WEATHERNAME) 
+
+head(accidentData_dummies)
+
+```
+
+We perform a **Principal Component Analysis (PCA)** to **reduce the dimensionality** of the dataset and explore its underlying structure. 
+
+The code executes the **prcomp** function, centering and scaling the data, which allows the variables to be analyzed on the **same scale**. Then, we summarize the results to obtain **information on the variance explained** by each **principal component**.
+
+The **variance proportion** indicates how much information each component retains, facilitating the **identification of the most relevant components**. 
+
+Finally, we generate a **histogram of the explained variance** to visualize how the variance is distributed across the principal components.
+
+
+```{r}
+pca.acc <- prcomp(accidentData_dummies, center = TRUE, scale. = TRUE)
+
+summary(pca.acc)
+
+ev <- get_eig(pca.acc)
+fviz_eig(pca.acc)
+
+var_acc <- pca.acc$sdev^2
+head(var_acc)
+
+num_components <- sum(var_acc > 1)
+
+var <- get_pca_var(pca.acc)
+head(var$coord[, 1:num_components], 11) 
+
+```
+
+
+```{r}
+var_acc <- pca.acc$sdev^2
+proporciones_varianza <- var_acc / sum(var_acc)
+```
+
+```{r}
+scree_data <- data.frame(
+  Component = 1:length(var_acc),
+  Variance = proporciones_varianza
+)
+
+ggplot(scree_data, aes(x = Component, y = Variance)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Scree Plot",
+       x = "Component Number",
+       y = "Proportion of Explained Variance") +
+  theme_minimal()
+
+```
+
+**PCA Analysis**
+
+The **Principal Component Analysis (PCA)** applied to the **accident data** reveals that **the first two principal components explain approximately 19% of the total variance**, suggesting that a significant portion of the information can be effectively represented in a lower-dimensional space. Additionally, the proportion of variance explained by the **first six principal components (PC1 to PC6) accounts for more than 47% of the total variance**.
+
+Notably, the **first principal component (PC1)** has a **high negative loading on WEATHERNAMEClear**, suggesting that **under clear weather conditions, more fatalities occur in accidents**. The **second component (PC2)** shows a **positive relationship with PERNOTMVIT and WEATHERNAMERain**, indicating that **rain may increase accident severity**. Meanwhile, the **third component (PC3)** presents a **complex combination of WEATHERNAMEFog, Smog, Smoke, and WEATHERNAMERain**, suggesting that **adverse weather conditions may be associated with an increased number of fatal accidents**.
+
+## Global Analysis
+
+The preliminary analysis, which reveals that **69.8% of non-motorized vehicle accidents occur under clear weather conditions**, suggests **important implications for road safety and driver behavior**. This finding highlights that **while clear conditions are considered safe for driving, accidents still frequently occur**. Many non-motorized vehicle users may assume that **good weather ensures greater safety**, potentially leading to **riskier behaviors such as speeding or inattention to road hazards**.
+
+On the other hand, the fact that **adverse weather conditions such as fog, smoke, or snow account for less than 2% of recorded accidents** suggests that, although **rare, these situations may significantly impact accident severity**. It is possible that **drivers are more cautious in these conditions**, resulting in **fewer accidents overall**. However, when they **do occur, these accidents tend to be more severe** due to factors such as **reduced visibility and loss of vehicle control**.
+
+The **PCA analysis performed on the normalized dataset** yielded interesting results regarding the relationship between **weather conditions and accidents**. It was observed that the **first six principal components (PC1 to PC6) explain more than 47% of the total variance**, indicating that **a relatively small number of variables capture most of the information** in the dataset.
+
+The **first component (PC1)** is notable for its **high negative loading on clear weather conditions (WEATHERNAMEClear)**. This suggests that, **contrary to expectations, good weather conditions are associated with a higher number of fatalities in accidents**. This finding is surprising, as **good weather is typically linked to safer driving conditions**.
+
+The **second component (PC2)** shows a **positive relationship with non-motorized vehicle variables (PERNOTMVIT) and rain conditions (WEATHERNAMERain)**. This indicates that **rain can contribute to more severe accidents**, emphasizing the need for **drivers to exercise greater caution in such conditions**.
+
+Finally, the **third component (PC3)** presents a **combination of complex weather conditions, such as fog, smog, and smoke, along with rain**. This suggests that **when weather conditions worsen, accidents become more hazardous**. These results **underline the importance of road safety awareness, especially on days with adverse meteorological conditions where visibility and vehicle control may be compromised**.
+
+To conclude, the fact that **most fatal accidents occur on clear days** may be linked to **increased traffic volume**. **When the weather is good, more people tend to drive**, increasing the **likelihood of collisions**. Additionally, **favorable weather may lead some drivers to become overconfident, resulting in risky behaviors such as speeding, under the false assumption that they are safer**.
+
+Conversely, **accidents that occur in the rain tend to be more severe**. This may be due to the fact that **rain makes roads slippery and reduces visibility**. Consequently, **drivers’ reaction times increase**, and **vehicles can skid more easily, leading to hazardous situations**. The **combination of rain and high speeds is particularly risky**, especially when **drivers fail to adjust their driving behavior to the weather conditions**.
+
+Regarding situations such as **fog or snow**, although they occur **less frequently**, when they **do happen, the impact can be more severe**. These conditions **drastically reduce visibility** and may lead to **multi-vehicle accidents, particularly on congested or high-speed roads**. 
+
+In general, it is **crucial for all drivers to consider weather conditions and adjust their driving style accordingly, regardless of whether the weather appears to be perfect or not**.
+
+
+
