@@ -1,0 +1,8 @@
+# Force RMarkdown and R as primary languages
+*.Rmd linguist-language=RMarkdown
+*.R linguist-language=R
+
+# Ignore auxiliary files
+*.html linguist-vendored
+*.csv linguist-vendored
+*.md linguist-documentation
