@@ -48,8 +48,8 @@ The dataset includes:
   accident_data$hour <- hour(accident_data$timestamp)
   ```
 
-### 3️⃣ **Geospatial Analysis**
-- Mapped accident hotspots using **leaflet**.
+### 3️⃣ **Regression Analysis**
+- Analyzed the relationship between accident severity and various contributing factors.
   
   ![Heatmap](images/accident_heatmap.png)
   
